@@ -39,7 +39,6 @@ let g:cpp_member_highlight = 1
 let g:cpp_simple_highlight = 1
 "END VIM-CPP-MODERN
 
-
 let g:rainbow_active = 1
 
 let g:user42 = 'ghanquer'
@@ -74,6 +73,10 @@ set so=5
 " toggle hybrid line numbers
 :set number! relativenumber!
 :highlight LineNr ctermfg=grey
+
+set tabstop=4 softtabstop=4
+set shiftwidth=4
+set smartindent
 
 :augroup numbertoggle
 :  autocmd!
