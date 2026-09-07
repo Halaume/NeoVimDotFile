@@ -5,11 +5,18 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'catppuccin/nvim'
 Plug 'frazrepom/vim-rainbow'
 Plug 'vim-syntastic/syntastic'
 
 call plug#end()
+
+lua << EOF
+require("catppuccin").setup({
+    flavour = "mocha"
+})
+EOF
+
 " catppuccin catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, 
 colorscheme catppuccin-mocha
 
@@ -40,9 +47,6 @@ let g:cpp_simple_highlight = 1
 "END VIM-CPP-MODERN
 
 let g:rainbow_active = 1
-
-let g:user42 = 'ghanquer'
-let	g:mail42 = 'ghanquer@student.42.fr'
 
 let g:rainbow_load_separately = [
 			\ [ '*' , [['(', ')'], ['{', '}']] ],
