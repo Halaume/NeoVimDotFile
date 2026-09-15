@@ -1,7 +1,7 @@
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
@@ -13,17 +13,17 @@ call plug#end()
 
 lua << EOF
 require("catppuccin").setup({
-    flavour = "mocha"
+flavour = "mocha"
 })
 EOF
 
-" catppuccin catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, 
+" catppuccin catppuccin-latte, catppuccin-frappe, catppuccin-macchiato,
 colorscheme catppuccin-mocha
 
 if !has('nvim')
-	set ai "Auto indent
-	set autoread
-	set smarttab
+        set ai "Auto indent
+        set autoread
+        set smarttab
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -49,11 +49,11 @@ let g:cpp_simple_highlight = 1
 let g:rainbow_active = 1
 
 let g:rainbow_load_separately = [
-			\ [ '*' , [['(', ')'], ['{', '}']] ],
-			\ [ '*.tex' , [['(', ')'], ['{', '}']] ],
-			\ [ '*.cpp' , [['(', ')'], ['{', '}']] ],
-			\ [ '*.{html,htm}' , [['(', ')'], ['{', '}']] ],
-			\ ]
+                        \ [ '*' , [['(', ')'], ['{', '}']] ],
+                        \ [ '*.tex' , [['(', ')'], ['{', '}']] ],
+                        \ [ '*.cpp' , [['(', ')'], ['{', '}']] ],
+                        \ [ '*.{html,htm}' , [['(', ')'], ['{', '}']] ],
+                        \ ]
 
 let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 let g:rainbow_ctermfgs = ['darkcyan', 'darkgrey', 'brown', 'darkmagenta']
@@ -93,9 +93,9 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
 if has("win16") || has("win32")
-	set wildignore+=.git\*,.hg\*,.svn\*
+        set wildignore+=.git\*,.hg\*,.svn\*
 else
-	set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+        set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
 " Always show current position
@@ -138,7 +138,7 @@ set noswapfile
 set hidden
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Keep undo even after vim close 
+" => Keep undo even after vim close
 " => !Make sure to create the directory yourself
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile
@@ -222,33 +222,33 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-	nmap <D-j> <M-j>
-	nmap <D-k> <M-k>
-	vmap <D-j> <M-j>
-	vmap <D-k> <M-k>
+        nmap <D-j> <M-j>
+        nmap <D-k> <M-k>
+        vmap <D-j> <M-j>
+        vmap <D-k> <M-k>
 endif
 
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	silent! %s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+        let save_cursor = getpos(".")
+        let old_query = getreg('/')
+        silent! %s/\s\+$//e
+        call setpos('.', save_cursor)
+        call setreg('/', old_query)
 endfun
 
 if has("autocmd")
-	autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+        autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
-nnoremap <silent> <Leader>ve :sp ~/.vim/.vimrc<CR>
+nnoremap <silent> <Leader>ve :sp /home/Halaume/.config/nvim/init.vim<CR>
 
-nnoremap <silent> <Leader>vs :source ~/.vim/.vimrc<CR>
+nnoremap <silent> <Leader>vs :source /home/Halaume/.config/nvim/init.vim<CR>
 
 autocmd VimEnter * ++nested
-      \   if argc() is# 0
-      \ |   edit ~/.vim/.vimrc
-      \ | endif
+                        \   if argc() is# 0
+                        \ |   edit /home/Halaume/.config/nvim/init.vim
+                        \ | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
